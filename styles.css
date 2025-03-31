@@ -1,0 +1,156 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family: Arial, Helvetica, sans-serif;
+}
+.develop{
+    display: flex;
+    justify-content: center;
+    background-color: rgb(255, 255, 255);
+    align-items: center;
+    height: 50px;
+    width: 100%;
+}
+.body-content {
+    display: flex;
+    
+    max-width: 1400px;
+    align-items: center;
+    margin: 40px auto;
+    padding: 0 20px;
+    gap: 10px;
+}
+.body-content2 {
+    display: flex;
+    text-align: center;
+    max-width: 1400px;
+    align-items: center;
+    margin: 40px auto;
+    padding: 0 20px;
+    gap: 10px;
+}
+
+header {
+    background-color: white;
+    padding: 15px 0;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    /* Light shadow effect */
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 20px;
+    height: 40px;
+}
+
+
+.logo img{
+    height: 70px;
+    padding: 5px;
+}
+.logo a {
+    height: 100%;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: black;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.auth-links {
+    display: flex;
+    gap: 15px;
+}
+.card:hover{
+    transform: scale(1.03);
+}
+
+.auth-links a {
+    text-decoration: none;
+    color: black;
+    font-size: 16px;
+    font-weight: 500;
+}
+.img-div{
+    display: flex;
+    width: auto;
+   height: 350px;
+    justify-content: center;
+}
+.button-div{
+    display: flex;
+   margin-top: 20px;
+     justify-content: center;
+}
+button{
+    padding: 10px;
+    width: 55%;
+   height: auto;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   font-size: 16px;
+   border-style: none;
+   border-radius: 10px;
+}
+
+.card {
+    width: 500px;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    background: white;
+    padding-top: 20px;
+    padding-bottom: 40px;
+    transition: transform 0.3s ease-in-out;
+    text-decoration: none;
+    
+   
+
+}
+
+.card-content {
+padding-top: 30px;
+    text-align: center;
+}
+.card img {
+    width: 300px; /* Ensures image takes full width of card */
+    height: 100%; /* Fixed height for uniformity */
+    object-fit: cover; /* Ensures image fits nicely */
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+.button-div img {
+    width: 20px; /* Proper size for the icon */
+    height: 20px;
+    object-fit: contain; /* Ensures proper scaling */
+    margin-left: 20px;
+}
+@media (max-width:800px){
+    .body-content {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+       
+        
+    }
+    .card{
+        width: 100%;
+    }
+}
