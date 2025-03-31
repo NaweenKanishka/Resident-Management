@@ -17,8 +17,23 @@ if($_server["REQUEST_METHOD"] == POST){
     $DOB = $_POST['dob'];
     $NIC = $_POST['NIC'];
     $Address = $_POST['address'];
-    
+    $phone = $_POST['phone'];
+    $email = $_POST['Email']
+    $occupation = $_POST['Occupation'];
+    $gender = $_POST['Gender'];
+    $registered_date = $_POST['registered_date'];
+
+    $sql = "INSERT INTO residents (full_name, dob, nic, address, phone, email, occupation, gender, registered_date)
+    VALUES ('$full_name', '$DOB', '$NIC', '$Address', '$phone', '$email', '$occupation', '$gender', '$registered_date')";
+
+    if($conn->query($sql) === TRUE){
+        echo "Registration success!"
+    }else{
+        echo "Error: " . $sql . "<br>" . $conn->error;
+    }
+
 
 }
+$conn->close();
 
 ?>
