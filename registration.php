@@ -2,7 +2,7 @@
 $servername = "localhost";
 $username = "root";
 $password = "";
-$database = "resident_database"
+$database = "resident_database";
 
 //create connection
 $conn = new mysqli($servername, $username, $password, $database);
@@ -12,13 +12,13 @@ if($conn->connect_error){
 }
 
 //check form is submitted
-if($_server["REQUEST_METHOD"] == POST){
+if($_SERVER["REQUEST_METHOD"] == "POST"){
     $full_name = $_POST['name'];
-    $DOB = $_POST['dob'];
+    $DOB = $_POST['DOB'];
     $NIC = $_POST['NIC'];
-    $Address = $_POST['address'];
+    $Address = $_POST['Address'];
     $phone = $_POST['phone'];
-    $email = $_POST['Email']
+    $email = $_POST['Email'];
     $occupation = $_POST['Occupation'];
     $gender = $_POST['Gender'];
     $registered_date = $_POST['registered_date'];
@@ -27,8 +27,9 @@ if($_server["REQUEST_METHOD"] == POST){
     VALUES ('$full_name', '$DOB', '$NIC', '$Address', '$phone', '$email', '$occupation', '$gender', '$registered_date')";
 
     if($conn->query($sql) === TRUE){
-        echo "Registration success!"
-    }else{
+        echo "Registration success!";
+    }else
+    {
         echo "Error: " . $sql . "<br>" . $conn->error;
     }
 
