@@ -3,7 +3,7 @@ $servername = "localhost";
 $username = "root";
 $password = "";
 $database = "resident_database";
-$error = "";
+$error = [];
 
 //create connection
 $conn = new mysqli($servername, $username, $password, $database);
@@ -25,9 +25,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     $registered_date = $_POST['registered_date'];
 
 
-    if(empty($full_name) || empty($DOB) || empty($NIC) || empty($Address) || empty($phone) || empty($email) || empty($occupation) || empty($gender) || empty($registered_date)){
-        $error = "All feilds are required."
-    }
+    
 
     $sql = "INSERT INTO residents (full_name, dob, nic, address, phone, email, occupation, gender, registered_date)
     VALUES ('$full_name', '$DOB', '$NIC', '$Address', '$phone', '$email', '$occupation', '$gender', '$registered_date')";
