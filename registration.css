@@ -205,6 +205,14 @@ transition: 0.2s ease;
 .back-forward-content:hover{
     background-color: rgb(0, 77, 0);
 }
+.error {
+    color: red;
+    font-size: 14px;
+    display: block;
+    margin-top: 5px;
+    padding: 0;
+}
+
 
 @media (max-width:800px) {
     .body-content {
