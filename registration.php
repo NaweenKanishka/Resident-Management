@@ -27,6 +27,14 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
     if(empty($full_name)) $error['name'] = "Full Name is required";
     if(empty($DOB)) $error['DOB'] = "Enter your date of birth is required"
+    if(empty($NIC)) $error['NIC'] = "NIC Number is required"
+    if(empty($Address)) $error['Address'] = "Address is required"
+    if(empty($phone)) $error['phone'] = "Phone number is required"
+    if(empty($email)) $error['Email'] = "Email is required"
+    if(empty($occupation)) $error['occupation'] = "occupation is required"
+    if(empty($gender)) $error['gender'] = "gender is required"
+    if(empty($registered_date)) $error['registered_date'] = "This feild is required"
+    
 
 
     if(empty($error)){
