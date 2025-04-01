@@ -26,6 +26,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
 
     if(empty($full_name)) $error['name'] = "Full Name is required";
+    if(empty($DOB)) $error['DOB'] = "Enter your date of birth is required"
 
 
     if(empty($error)){
@@ -96,6 +97,7 @@ $conn->close();
 
                         <label for="DOB">Date of Birth</label>
                         <input type="date" name="DOB" id="DOB"><br><br>
+                        <span class="error"><?php echo $error['DOB'] ?? ''; ?></span>
 
                         <label for="NIC">NIC</label>
                         <input type="text" name="NIC" id="NIC"><br><br>
