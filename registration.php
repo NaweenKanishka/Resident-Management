@@ -23,6 +23,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     $gender = $_POST['Gender'];
     $registered_date = $_POST['registered_date'];
 
+
+    if(empty($full_name) || empty($DOB) || empty($NIC) || empty($Address))
+
     $sql = "INSERT INTO residents (full_name, dob, nic, address, phone, email, occupation, gender, registered_date)
     VALUES ('$full_name', '$DOB', '$NIC', '$Address', '$phone', '$email', '$occupation', '$gender', '$registered_date')";
 
