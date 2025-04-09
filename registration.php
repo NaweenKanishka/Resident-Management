@@ -25,12 +25,28 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     $registered_date = $_POST['registered_date'];
 
 
-    if(empty($full_name)) $error['name'] = "Full Name is required";
+    if(empty($full_name)) {
+        $error['name'] = "Full name is required";
+    } elseif(!preg_match("/^[a-zA-Z\s]+$/", $full_name)) {
+        $error['name'] = "Full name can only contain letters and spaces";
+    }
     if(empty($DOB)) $error['DOB'] = "Enter your date of birth is required";
-    if(empty($NIC)) $error['NIC'] = "NIC Number is required";
+    if(empty($NIC)) {
+        $error['NIC'] = "NIC number is required";
+    } elseif(!preg_match("/^(\d{9}[vxVX]|\d{12})$/", $NIC)) {
+        $error['NIC'] = "Enter a valid NIC number";
+    }
     if(empty($Address)) $error['Address'] = "Address is required";
-    if(empty($phone)) $error['phone'] = "Phone number is required";
-    if(empty($email)) $error['Email'] = "Email is required";
+    if(empty($phone)) {
+        $error['phone'] = "Phone number is required";
+    } elseif(!preg_match("/^(0\d{9})$/", $phone)) {
+        $error['phone'] = "Enter a valid 10-digit phone number starting with 0";
+    }
+    if(empty($email)) {
+        $error['Email'] = "Email is required";
+    } elseif(!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        $error['Email'] = "Enter a valid email address";
+    }
     if(empty($occupation)) $error['occupation'] = "occupation is required";
     if(empty($gender)) $error['gender'] = "gender is required";
     if(empty($registered_date)) $error['registered_date'] = "This feild is required";
@@ -104,24 +120,29 @@ $conn->close();
                         <span class="error"><?php echo $error['name'] ?? ''; ?></span><br>
 
                         <label for="DOB">Date of Birth</label>
-                        <input type="date" name="DOB" id="DOB"><br><br>
-                        <span class="error"><?php echo $error['DOB'] ?? ''; ?></span>
+                        <input type="date" name="DOB" id="DOB"><br>
+                        <span class="error"><?php echo $error['DOB'] ?? ''; ?></span><br>
 
                         <label for="NIC">NIC</label>
-                        <input type="text" name="NIC" id="NIC"><br><br>
+                        <input type="text" name="NIC" id="NIC"><br>
+                        <span class="error"><?php echo $error['NIC'] ?? ''; ?></span><br>
 
                         <label for="Address">Address</label>
-                        <input type="text" name="Address" id="Address"><br><br>
+                        <input type="text" name="Address" id="Address"><br>
+                        <span class="error"><?php echo $error['Address'] ?? ''; ?></span><br>
 
                         <label for="phone">Phone Number</label>
-                        <input type="number" name="phone" id="phone"><br><br>
+                        <input type="number" name="phone" id="phone"><br>
+                        <span class="error"><?php echo $error['phone'] ?? ''; ?></span><br>
 
                         <label for="Email">Email</label>
-                        <input type="email" name="Email" id="Email"><br><br>
+                        <input type="email" name="Email" id="Email"><br>
+                        <span class="error"><?php echo $error['Email'] ?? ''; ?></span><br>
 
 
                         <label for="Occupation">Occupation</label>
-                        <input type="text" name="Occupation" id="Occupation"><br><br>
+                        <input type="text" name="Occupation" id="Occupation"><br>
+                        <span class="error"><?php echo $error['occupation'] ?? ''; ?></span><br>
 
                         <label for="Gender">Gender</label><br>
                         <select name="Gender" id="Gender">
@@ -130,8 +151,8 @@ $conn->close();
                         </select>
                         <br><br>
                         <label for="registered-date">Registered Date</label>
-                        <input type="date" name="registered_date" id="registered_date"><br><br>
-
+                        <input type="date" name="registered_date" id="registered_date"><br>
+                        <span class="error"><?php echo $error['registered_date'] ?? ''; ?></span><br>
 
                         <button type="submit" id="submit" name="submit">Register</button>
 

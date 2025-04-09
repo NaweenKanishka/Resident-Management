@@ -106,7 +106,7 @@ $conn->close();
             <form action="" method="post">
                 <div class="cc">
                     <div>
-                        <label for="search">Search Resident (NIC or Name)</label>
+                        <label for="search">Search Resident (NIC, Name or Address)</label>
                         <input type="text" name="search" id="search" required>
                     </div>
 
